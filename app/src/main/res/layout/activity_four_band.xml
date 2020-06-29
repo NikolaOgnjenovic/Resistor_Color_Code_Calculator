@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    android:layout_gravity="center"
+    tools:context=".FourBand">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_margin="20sp">
+
+        <TextView
+            android:id="@+id/firstBandText"
+
+            android:layout_width="140sp"
+            android:layout_height="match_parent"
+
+            android:text="First band"
+            android:textSize="20sp"/>
+
+        <Spinner
+            android:id="@+id/firstBandSpinner"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_margin="20sp">
+
+        <TextView
+            android:id="@+id/secondBandText"
+
+            android:layout_width="140sp"
+            android:layout_height="wrap_content"
+
+            android:text="Second band"
+            android:textSize="20sp"/>
+
+        <Spinner
+            android:id="@+id/secondBandSpinner"
+
+            android:layout_alignParentRight="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_margin="20sp">
+
+        <TextView
+            android:id="@+id/thirdBandText"
+
+            android:layout_width="140sp"
+            android:layout_height="wrap_content"
+
+            android:text="Third band"
+            android:textSize="20sp"/>
+
+        <Spinner
+            android:id="@+id/thirdBandSpinner"
+
+            android:layout_alignParentRight="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_margin="20sp">
+
+        <TextView
+            android:id="@+id/fourthBandText"
+
+            android:layout_width="140sp"
+            android:layout_height="wrap_content"
+
+            android:text="Fourth band"
+            android:textSize="20sp"/>
+
+        <Spinner
+            android:id="@+id/fourthBandSpinner"
+
+            android:layout_alignParentRight="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+</LinearLayout>

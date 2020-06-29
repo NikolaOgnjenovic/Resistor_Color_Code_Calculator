@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Color values taken from https://webtechie.be/post/2019-11-25-resistor-color-codes-and-calculations-a-java-maven-library/-->
+    <item name="black" type="color">#000000</item>
+    <item name="brown" type="color">#761d1d</item>
+    <item name="red" type="color">#cc0000</item>
+    <item name="orange" type="color">#ffa500</item>
+    <item name="yellow" type="color">#ffff00</item>
+    <item name="green" type="color">#008000</item>
+    <item name="blue" type="color">#0000cc</item>
+    <item name="violet" type="color">#ee82ee</item>
+    <item name="grey" type="color">#808080</item>
+    <item name="white" type="color">#ffffff</item>
+    <item name="gold" type="color">#ffd700</item>
+    <item name="silver" type="color">#c0c0c0</item>
+
+    <integer-array name="spinnerColors">
+        <item>@color/black</item>
+        <item>@color/brown</item>
+        <item>@color/red</item>
+        <item>@color/orange</item>
+        <item>@color/yellow</item>
+        <item>@color/green</item>
+        <item>@color/blue</item>
+        <item>@color/violet</item>
+        <item>@color/grey</item>
+        <item>@color/white</item>
+        <item>@color/gold</item>
+        <item>@color/silver</item>
+    </integer-array>
+</resources>
