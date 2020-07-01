@@ -19,11 +19,18 @@ class SpinnerAdapter extends BaseAdapter
         this.context = context;
         colors = new ArrayList<Integer>();
 
+        //All available colors for bands
         int retrieve[] = context.getResources().getIntArray(R.array.spinnerColors);
+
+        //4 band resistors use the third band for the multiplier
         int multiplierIndex = 3;
+        //5 and 6 band resistors use the fourth band for the multiplier
         if(bandCount>4)
             multiplierIndex=4;
 
+        /*TODO: think of a better way to do this?
+        Binary search would probably be a waste of resources and require
+        more array accesses than just doing 6 comparisons when it comes to tolerance and PPM*/
         for(int i = 0; i < retrieve.length; ++i)
         {
             int re = retrieve[i];
@@ -74,5 +81,4 @@ class SpinnerAdapter extends BaseAdapter
         txv.setBackgroundColor(colors.get(pos));
         return view;
     }
-
 }

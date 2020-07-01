@@ -23,9 +23,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent launchResistorPicker = new Intent(MainActivity.this, ResistorCalculator.class);
-                launchResistorPicker.putExtra("BandCount", 4);
-                startActivity(launchResistorPicker);
+                launchCalculator(4);
             }
         });
 
@@ -34,9 +32,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent launchResistorPicker = new Intent(MainActivity.this, ResistorCalculator.class);
-                launchResistorPicker.putExtra("BandCount", 5);
-                startActivity(launchResistorPicker);
+                launchCalculator(5);
             }
         });
 
@@ -45,10 +41,15 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent launchResistorPicker = new Intent(MainActivity.this, ResistorCalculator.class);
-                launchResistorPicker.putExtra("BandCount", 6);
-                startActivity(launchResistorPicker);
+                launchCalculator(6);
             }
         });
+    }
+
+    private void launchCalculator(int bandCount)
+    {
+        Intent launchResistorPicker = new Intent(MainActivity.this, ResistorCalculator.class);
+        launchResistorPicker.putExtra("BandCount", bandCount);
+        startActivity(launchResistorPicker);
     }
 }

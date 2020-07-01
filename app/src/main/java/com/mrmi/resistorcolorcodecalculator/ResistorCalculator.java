@@ -17,7 +17,7 @@ public class ResistorCalculator extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_four_band);
+        setContentView(R.layout.activity_resistor_calculator);
 
         final Spinner firstBandSpinner = findViewById(R.id.firstBandSpinner), secondBandSpinner = findViewById(R.id.secondBandSpinner), thirdBandSpinner = findViewById(R.id.thirdBandSpinner),
                 fourthBandSpinner = findViewById(R.id.fourthBandSpinner), fifthBandSpinner = findViewById(R.id.fifthBandSpinner), sixthBandSpinner = findViewById(R.id.sixthBandSpinner);
@@ -58,7 +58,7 @@ public class ResistorCalculator extends AppCompatActivity
                 //Step 1: calculating the resistance digits:
 
                 //On four band resistors the first two bands determine the resistance digits.
-                float digits = firstBandSpinner.getSelectedItemId()*10+secondBandSpinner.getSelectedItemId();
+                double digits = firstBandSpinner.getSelectedItemId()*10+secondBandSpinner.getSelectedItemId();
                 //Five and six band resistors use the third band for determining the third resistance digit
                 if(bandCount>4)
                     digits = digits*10 + thirdBandSpinner.getSelectedItemId();
@@ -73,25 +73,14 @@ public class ResistorCalculator extends AppCompatActivity
                 //5 and 6 band resistors use the fourth band for the multiplier
                 else
                     multiplierIndex = (int) fourthBandSpinner.getSelectedItemId();
-                String multiplierText="";
-                //Change multiplierText String depending on which multiplier color is selected (gold and silver at indexes 10 and 11 divide the digits by 10 and 100 respectively)
+                //Multiply digits by 10 to the power of multiplierIndex (or divide them by 10 and 100 for multiplierIndexes of 10 and 11 respectively)
                 switch(multiplierIndex)
                 {
-                    case 0: multiplierText = ""; break;
-                    case 1: multiplierText = "0"; break;
-                    case 2: multiplierText = "00"; break;
-                    case 3: multiplierText = "k"; break;
-                    case 4: multiplierText = "0k"; break;
-                    case 5: multiplierText = "00k"; break;
-                    case 6: multiplierText = "M"; break;
-                    case 7: multiplierText = "0M"; break;
-                    case 8: multiplierText = "00M"; break;
-                    case 9: multiplierText = "G"; break;
                     case 10: digits/=10; break;
                     case 11: digits/=100; break;
+                    default: digits = (digits*Math.pow(10, multiplierIndex));
                 }
-                DecimalFormat df = new DecimalFormat("#.##");
-                outputText += df.format(digits)+multiplierText+" Ω";
+                outputText += formatDigits(digits)+" Ω";
 
                 //Step 3: calculating tolerance:
                 int toleranceIndex;
@@ -131,12 +120,31 @@ public class ResistorCalculator extends AppCompatActivity
                         case 4: ppmText += "10"; break;
                         case 5: ppmText += "5"; break;
                     }
-                    ppmText += "ppm";
+                    ppmText += "ppm/°C";
                     outputText += ppmText;
                 }
 
                 outputTextView.setText(outputText);
             }
         });
+    }
+
+    //Formats resistance digits and returns them as a string with the appropriate suffix (k for kilo, M for mega, G for giga)
+    public String formatDigits(double digits)
+    {
+        String selectedSuffix = "";
+
+        //Loop through suffixes selecting them and dividing digits by 1000 if possible
+        for (String suffix: new String[] {"k", "M", "G"})
+        {
+            if (digits < 1000)
+                break;
+            selectedSuffix = suffix;
+            digits/=1000;
+        }
+
+        //Format the digits to show up to two decimal points if needed and add the appropriate suffix
+        DecimalFormat df = new DecimalFormat("#.##");
+        return df.format(digits) + selectedSuffix;
     }
 }
