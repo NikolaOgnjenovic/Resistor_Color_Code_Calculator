@@ -1,47 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorAccent"
     android:gravity="center_horizontal"
-    android:textAlignment="center"
+    android:orientation="vertical"
     android:padding="20sp"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity">
+
+    <Button
+        android:padding="10sp"
+        android:id="@+id/infoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:text="INFO"
+        android:textAllCaps="false"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp" />
 
     <TextView
+        android:layout_marginTop="140sp"
         android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Resistor color code calculator"
+        android:text="Select the number of bands on your resistor"
         android:textAlignment="center"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:gravity="center_horizontal" />
 
     <Button
-        android:layout_margin="20sp"
+        android:padding="10sp"
         android:id="@+id/fourBandButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="4 band resistors"
+        android:layout_margin="20sp"
+        android:background="@color/colorPrimary"
+        android:text="4 bands"
         android:textAllCaps="false"
-        android:textSize="30sp"/>
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp" />
 
     <Button
-        android:layout_margin="20sp"
+        android:padding="10sp"
         android:id="@+id/fiveBandButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="5 band resistors"
+        android:layout_margin="20sp"
+        android:background="@color/colorPrimary"
+        android:text="5 bands"
         android:textAllCaps="false"
-        android:textSize="30sp"/>
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp" />
 
     <Button
-        android:layout_margin="20sp"
+        android:padding="10sp"
         android:id="@+id/sixBandButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="6 band resistors"
+        android:layout_margin="20sp"
+        android:background="@color/colorPrimary"
+        android:text="6 bands"
         android:textAllCaps="false"
-        android:textSize="30sp"/>
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp" />
 </LinearLayout>

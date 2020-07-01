@@ -22,7 +22,8 @@ public class MainActivity extends AppCompatActivity
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); //Lock activity into portrait mode
 
         //Launch ResistorCalculator activity using the selected number of bands via buttons
-        Button fourBandButton = findViewById(R.id.fourBandButton), fiveBandButton = findViewById(R.id.fiveBandButton), sixBandButton = findViewById(R.id.sixBandButton);
+        Button fourBandButton = findViewById(R.id.fourBandButton), fiveBandButton = findViewById(R.id.fiveBandButton), sixBandButton = findViewById(R.id.sixBandButton),
+                infoButton = findViewById(R.id.infoButton);
         fourBandButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -47,6 +48,17 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 launchCalculator(6);
+            }
+        });
+
+        //Show info dialog on infoButton click
+        infoButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                InfoDialog infoDialog = new InfoDialog();
+                infoDialog.show(getSupportFragmentManager(), "info dialog");
             }
         });
     }

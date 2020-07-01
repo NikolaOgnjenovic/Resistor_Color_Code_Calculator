@@ -164,6 +164,7 @@ public class ResistorCalculator extends AppCompatActivity
 
         outputTextView.setText(outputText);
     }
+
     //Formats resistance digits and returns them as a string with the appropriate suffix (k for kilo, M for mega, G for giga)
     private String formatDigits(double digits)
     {
